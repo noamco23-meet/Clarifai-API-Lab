@@ -1,12 +1,21 @@
 <html>
     <body>
         <h1>Image Analyzer!</h1>
-        <form method="post" action="/study_image" >
+        <form method="post" action="/study_image">
             Image URL:
             <input type="text" name="url-input">
             <input type="submit">
         </form>
-
-        {{results}}
+        <h3>The things appearing in the picture are:</h3>
+            <ul>
+                {% for i in results %}
+                <li>{{i}}</li>
+                {%endfor%}
+            </ul>
+        {%if human==True%}
+            <h3>There are humans in the picture</h3>
+        {%else%}
+            <h3>There aren't any humans in the picture</h3>
+        {%endif%}
     </body>
 </html>
